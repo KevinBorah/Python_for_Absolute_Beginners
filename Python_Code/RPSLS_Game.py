@@ -19,7 +19,7 @@ def scoring(player_1, roll1, player_2, roll2):
         if roll2 == 'scissors':
             winner = player_1
             print(
-                f"{player_1} threw {roll1}; {player_2} threw {roll2}; {roll1} crushes {roll2}. Therefore {winner} wins the round!")
+                f"{player_1} threw {roll1}; {player_2} threw {roll2}; Just as it always has {roll1} crushes {roll2}. Therefore {winner} wins the round!")
         elif roll2 == 'lizard':
             winner = player_1
             print(
@@ -61,7 +61,7 @@ def scoring(player_1, roll1, player_2, roll2):
         elif roll2 == 'rock':
             winner = player_2
             print(
-                f"{player_1} threw {roll1}; {player_2} threw {roll2}; {roll2} crushes {roll1}. Therefore {winner} wins the round!")
+                f"{player_1} threw {roll1}; {player_2} threw {roll2}; Just as it always has {roll2} crushes {roll1}. Therefore {winner} wins the round!")
         elif roll2 == 'spock':
             winner = player_2
             print(
@@ -103,7 +103,7 @@ def scoring(player_1, roll1, player_2, roll2):
 
     # Scoring rules for Rock, Paper, Scissors, Lizard, Spock
     #   Rock
-    #       wins vs scissors    (crushes scissors)
+    #       wins vs scissors    (and just as it always has rock crushes scissors)
     #       wins vs lizard      (crushes lizard)
     #       loses vs paper      (covered by paper)
     #       loses vs spock      (vaporized by spock)
