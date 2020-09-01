@@ -130,16 +130,20 @@ def scoring(player_1, roll1, player_2, roll2):
 
 
 def player_1_turn(player_1, rolls):
-    print("Available rolls:")
+    print()
+    print("Available rolls:", end=' ')
     for index, r in enumerate(rolls, start=1):
-        print(f"{index}. {r}")
-    roll = int(input(f"{player_1} what would you like to throw? ")) - 1
+        print(f"{index}. {r}", end=' ')
+    print()
+    roll = int(input(f"{player_1} what would you like to throw? (Select 1-5 above) ")) - 1
     if roll < 0 or roll >= len(rolls):
         print(f"{player_1} ({roll + 1}) is not a valid roll. Please try again.")
-        print("Available rolls:")
+        print("Available rolls:", end=' ')
         for index, r in enumerate(rolls, start=1):
-            print(f"{index}. {r}")
+            print(f"{index}. {r}", end=' ')
+        print()
         roll = int(input(f"{player_1} what would you like to throw? ")) - 1
+    print()
 
     return rolls[roll]
 
@@ -175,7 +179,9 @@ def first_to_3(player_1, player_2, valid_rolls):
         winner = player_1
     elif p2_wins >= 3:
         winner = player_2
+    print()
     print(f"{winner} takes the game!")
+    print()
 
 
 def main():
@@ -191,7 +197,7 @@ def main():
     else:
         try_again = input(f"{player_1} you won! do you want to push your luck and play again? (yes or no) ")
         try_again = try_again.lower().strip()
-    if try_again == 'yes' or try_again == 'y':
+    if try_again == 'yes' or 'y' or '1':
         first_to_3(player_1, player_2, valid_rolls)
     else:
         print("OK, have a nice day.")
