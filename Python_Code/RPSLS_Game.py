@@ -14,7 +14,7 @@ def scoring(player_1, roll1, player_2, roll2):
     global winner
     if roll1 == roll2:
         winner = 'tie'
-        print(f"{player_1} you tied with {player_2} no one likes a tie.")
+        print(f"{player_1} you tied with {player_2} by both throwing {roll1}. No one likes a tie.")
     elif roll1 == 'rock':
         if roll2 == 'scissors':
             winner = player_1
@@ -130,18 +130,18 @@ def scoring(player_1, roll1, player_2, roll2):
 
 
 def player_1_turn(player_1, rolls):
-    roll = input(f"{player_1} what would you like to throw? {rolls} ")
-    roll = roll.lower().strip()
-    if roll not in rolls:
-        print(
-            f"{player_1} ({roll}) is not a valid roll. Please use one of these options: {rolls}, or check your spelling and try again.")
-        roll = input(f"{player_1} what would you like to throw? {rolls} ")
-        roll = roll.lower().strip()
-        if roll not in rolls:
-            print(
-                f"{player_1} ({roll}) is not a valid roll. Please use one of these options: {rolls}, or check your spelling and try again.")
-            roll = input(f"{player_1} what would you like to throw? {rolls} ")
-    return roll
+    print("Available rolls:")
+    for index, r in enumerate(rolls, start=1):
+        print(f"{index}. {r}")
+    roll = int(input(f"{player_1} what would you like to throw? {rolls} ")) - 1
+    if roll < 0 or roll >= len(rolls):
+        print(f"{player_1} ({roll + 1}) is not a valid roll. Please try again.")
+        print("Available rolls:")
+        for index, r in enumerate(rolls, start=1):
+            print(f"{index}. {r}")
+        roll = int(input(f"{player_1} what would you like to throw? {rolls} ")) - 1
+
+    return rolls[roll]
 
 
 def play_round(user, computer, valid_rolls):
@@ -185,7 +185,6 @@ def main():
     player_1 = input("Hello player, what is your name? ")
     player_2 = "Computer"
     first_to_3(player_1, player_2, valid_rolls)
-    try_again = None
     if winner is not player_1:
         try_again = input(f"{player_1} you lost, would you like to play again? (yes or no) ")
         try_again = try_again.lower().strip()
