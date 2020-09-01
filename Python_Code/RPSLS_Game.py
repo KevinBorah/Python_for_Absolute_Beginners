@@ -133,13 +133,13 @@ def player_1_turn(player_1, rolls):
     print("Available rolls:")
     for index, r in enumerate(rolls, start=1):
         print(f"{index}. {r}")
-    roll = int(input(f"{player_1} what would you like to throw? {rolls} ")) - 1
+    roll = int(input(f"{player_1} what would you like to throw? ")) - 1
     if roll < 0 or roll >= len(rolls):
         print(f"{player_1} ({roll + 1}) is not a valid roll. Please try again.")
         print("Available rolls:")
         for index, r in enumerate(rolls, start=1):
             print(f"{index}. {r}")
-        roll = int(input(f"{player_1} what would you like to throw? {rolls} ")) - 1
+        roll = int(input(f"{player_1} what would you like to throw? ")) - 1
 
     return rolls[roll]
 
