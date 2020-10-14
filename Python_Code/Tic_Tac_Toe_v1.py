@@ -1,4 +1,5 @@
 import random
+import time
 
 
 # Create the Board
@@ -49,8 +50,11 @@ def main():
         # Toggle Active Player
         active_player_index = (active_player_index + 1) % len(players)
 
-    print(f"Game Over! {player} Wins the game with the board:   ")
+    print()
+    print(f"GAME OVER! {player} Wins the game! Here's the final board:")
+    print()
     show_board(board)
+    print()
 
 
 def get_players():
@@ -78,6 +82,7 @@ def show_board(board):
             symbol = cell if cell is not None else "_"
             print(symbol, end=' | ')
         print()
+    print()
 
 
 def choose_location(board, symbol, active_player):
@@ -146,5 +151,6 @@ def find_winning_sequences(board):
 
 if __name__ == '__main__':
     main()
+    time.sleep(3)
 
 # <K2>
